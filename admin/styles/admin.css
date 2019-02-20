@@ -1,0 +1,23 @@
+@import url("fonts.css");
+
+:root {
+	--blue: #2980b9;
+	--dblue: #34495e;
+	--grey: #ecf0f1;
+	--green: #2ecc71;
+	--purple: #8e44ad;
+};
+
+.page {
+	font-family: 'Proxima Nova';
+	font-size: 16px;
+	background-color: var(--blue);
+}
+
+.container {
+	max-width: 960px;
+	margin-top: 43px;
+	margin-bottom: 43px;
+	margin-left: auto;
+	margin-right: auto;
+}
