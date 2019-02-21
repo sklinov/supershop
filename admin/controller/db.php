@@ -1,5 +1,5 @@
 <?php
-$mysql_host = "94.154.12.56";
+$mysql_host = "localhost";
 $mysql_user = "superstore";
 $mysql_password = "wewrDMijWFA0yxZH";
 $my_database = "superstore";
