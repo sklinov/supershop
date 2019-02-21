@@ -86,7 +86,8 @@
 }
 
 .catdropdown {
-
+ padding: 3px;
+ margin-bottom: 20px;
 }
 .label {
 
@@ -98,17 +99,21 @@
  border: 1px solid var(--greytext);
  border-collapse: collapse;
 }
-.table__header {
+
+
+.table__head {
 	text-transform: uppercase;
+	text-align: left;
+	padding: 3px;
 }
 
 .table__row {
-
+	padding: 5px;
 }
-.table__row:hover {
+.table__row:hover:not(:first-of-type) {
 	background-color: var(--grey);
-	border-left: 4px solid var(--purple);
+	border-left-left: 4px solid var(--purple);
 }
 .table__cell {
-
+	padding: 3px;
 }
