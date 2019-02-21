@@ -3,10 +3,12 @@
 :root {
 	--blue: #2980b9;
 	--dblue: #34495e;
+	--ddblue: #243342;
 	--grey: #ecf0f1;
+	--greytext: #95a5a6;
 	--green: #2ecc71;
 	--purple: #8e44ad;
-};
+}
 
 .page {
 	font-family: 'Proxima Nova';
@@ -16,8 +18,97 @@
 
 .container {
 	max-width: 960px;
+	min-height: 1086px;
 	margin-top: 43px;
 	margin-bottom: 43px;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: white;
+	padding: 0px;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+.menu {
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--dblue);
+}
+.menu__logo {
+	background-color: var(--green);
+	text-align: center;	
+	color: white;
+	text-transform: uppercase;
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+.menu__logo-line1 {
+	font-size: 24px;
+	font-weight: 300;	
+}
+.menu__logo-line2 {
+	font-size: 30px;
+	font-weight: 700;
+}
+.menu__item {
+	text-transform: uppercase;
+	color: var(--greytext);
+	font-size: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	cursor: pointer;
+
+}
+
+.menu__item:hover {
+	color: white;
+	background-color: var(--ddblue);
+}
+
+.menu__footer {
+	color: white;
+	text-align: center;
+}
+.content {
+	background-color: var(--grey);
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+
+}
+.title {
+	text-transform: uppercase;
+	font-size: 48px;
+	font-weight: 300;
+}
+
+.catdropdown {
+
+}
+.label {
+
+}
+
+.table {
+ width: 100%;
+ background-color: white;
+ border: 1px solid var(--greytext);
+ border-collapse: collapse;
+}
+.table__header {
+	text-transform: uppercase;
+}
+
+.table__row {
+
+}
+.table__row:hover {
+	background-color: var(--grey);
+	border-left: 4px solid var(--purple);
+}
+.table__cell {
+
 }

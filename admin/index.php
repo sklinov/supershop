@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,7 +15,7 @@
 <body class="page">
 	<div class="container">
 		<div class="menu">
-			<div class="menu__logo">Super SHOP</div>
+			<div class="menu__logo"><span class="menu__logo-line1">Super</span><br><span class="menu__logo-line2"> SHOP</span></div>
 			<div class="menu__item">Заказы</div>
 			<div class="menu__item">Покупатели</div>
 			<div class="menu__item">Товары</div>
@@ -21,8 +24,9 @@
 			<div class="menu__footer">выйти</div>
 		</div>
 		<div class="content">
-			<h1>Заголовок</h1>
-			
+			<?php
+				include 'controller/product.php';
+			?>	
 		</div>
 	</div>
 
