@@ -9,7 +9,6 @@ require 'controller/db.php';
 	<link rel="stylesheet" type="text/css" href="styles/admin.css">
 	<script src="scripts/jquery-3.3.1.min.js"></script>
 	<script src="scripts/jquery.maskedinput.js"></script>
-	<script src="scripts/script.js"></script>
 	<title>Super Shop</title>
 </head>
 <body class="page">
@@ -24,9 +23,9 @@ require 'controller/db.php';
 			<div class="menu__footer">выйти</div>
 		</div>
 		<div class="content" id="content">
-				
+			<?php include 'controller/main.php'?>	
 		</div>
 	</div>
-
+<script src="scripts/script.js"></script>
 </body>
 </html>
