@@ -42,6 +42,7 @@
 	text-transform: uppercase;
 	padding-top: 18px;
 	padding-bottom: 18px;
+	cursor: pointer;
 }
 .menu__logo-line1 {
 	font-size: 24px;
@@ -116,4 +117,12 @@
 }
 .table__cell {
 	padding: 3px;
+}
+
+.menu__item-mainpage {
+	padding: 30px;
+	margin: 15px;
+	width: 50%;
+	font-size: 26px;
+	cursor: pointer;
 }

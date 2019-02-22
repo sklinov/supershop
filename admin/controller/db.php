@@ -32,12 +32,11 @@ if($cat_chosen) {
 }
 else {
 	//$i++;
-	echo "Выберите категорию";
+	$cat_id = "1";
+	$products = all_from_category($mysqli, $product_table, $product_category_table, $cat_id);
+	//echo "Выберите категорию";
 }
 
-//var_dump($cat_chosen);
-
-//$products = all_from_category($mysqli, $product_table, $product_category_table, $category);
 
 
 function all_from_table($mysqli, $my_table) {
@@ -46,10 +45,8 @@ function all_from_table($mysqli, $my_table) {
 }
 
 function all_from_category($mysqli, $pr_table, $pr_cat_table, $category) {
-//	$res = $mysqli->query("SELECT ".$pr_table.".name, ".$pr_table.".price FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id WHERE ".$pr_cat_table.".id_category = ".$category);
-
-	$res= $mysqli->query("SELECT product.name, product.price FROM `product_category` JOIN product ON  product.id=product_category.id_product WHERE product_category.id_category = ".(int)$category);
-
+	$res = $mysqli->query("SELECT ".$pr_table.".name, ".$pr_table.".price FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product WHERE ".$pr_cat_table.".id_category = ".(int)$category);
+	//$res= $mysqli->query("SELECT product.name, product.price FROM `product_category` JOIN product ON  product.id=product_category.id_product WHERE product_category.id_category = ".(int)$category);
 	return $res;
 }
 

@@ -1,6 +1,5 @@
 <?php
-include 'controller/db.php';
-
+require 'db.php';
 // Заголовок
 echo '<h1 class="title">Товары</h1>';
 // Текущая категория
@@ -30,9 +29,6 @@ while($product = $products->fetch_assoc()) {
  	  </tr>';
  }
 // Конец таблицы
-
 echo '</table>';
-
-
 
 ?>
