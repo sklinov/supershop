@@ -15,6 +15,8 @@ if ($mysqli->connect_errno) {
     echo "Не удалось подключиться к MySQL: " . $mysqli->connect_error;
 }
 
+
+
 //Get all the categories available
 $cats= all_from_table($mysqli, $category_table);
 

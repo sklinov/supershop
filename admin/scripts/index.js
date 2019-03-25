@@ -22,6 +22,7 @@ $(function(){
 		console.log("Click category");
 		$('#content').load('controller/category.php');
 	});
+	
 	$('#content').on("click","#selectcat", function(){
 		   console.log("category chosen");
 		   var formData = $('#catdropdown').val(); 

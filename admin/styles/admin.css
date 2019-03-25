@@ -126,3 +126,9 @@
 	font-size: 26px;
 	cursor: pointer;
 }
+
+.add {
+	text-align: right;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
