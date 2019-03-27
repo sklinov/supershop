@@ -19,32 +19,34 @@ $product_category_table = "product_category";
 
 $categories = all_categories($mysqli, $category_table, $product_category_table);
 
-// Добавление новой категории
-
-$newcat = isset($_POST['new-name']) ? $_POST['new-name'] : false;
-var_dump($newcat);
-if($newcat) {
-	add_category($mysqli, $category_table, $newcat);
-}
-else {
-	echo "Введите имя категории";
-}
-
-function add_category($mysqli, $category_table, $newcat)
-{
-	$q = "INSERT INTO category( id,name, title, discription) VALUES ('',".$newcat.",'','')";
-	if($mysqli->query($q) === TRUE)
-	{
-		echo "Категория ".$newcat."добавлена";
-	}
-	else
-	{
-		echo "Ошибка: ".$mysqli->error;
-	}
-}
 
 function all_categories($mysqli, $category_table, $pr_cat_table) {
-	$q="SELECT category.id, category.name, COUNT(*) as quantity FROM product_category JOIN category ON category.id=product_category.id_category JOIN product ON product.id=product_category.id_product GROUP BY category.id";
+	$q="SELECT
+	product_category.id_category AS pr_cat_cat_id,
+	id_product AS pr_cat_pr_id,
+	product.name AS productname,
+	categories.id,
+	categories.name,
+	COUNT(product_category.id_category) AS quantity
+FROM
+	product
+LEFT JOIN
+	product_category
+ON
+	product_category.id_product = product.id
+RIGHT JOIN
+	(
+SELECT
+	*
+FROM
+	category
+) AS categories
+ON
+	categories.id = product_category.id_category
+GROUP BY name
+ORDER BY id ASC";
+	
+	
 	$res = $mysqli->query($q);
 	//	$res = $mysqli->query("SELECT ".$category_table.".name, ".$category_table.".id count (*) AS quantity FROM ".$pr_cat_table." JOIN ".$category_table." ON ".$category_table.".id=".$pr_cat_table.".id_category GROUP BY ".$category_table."id");
 	return $res;
@@ -53,7 +55,6 @@ function all_categories($mysqli, $category_table, $pr_cat_table) {
 
 // Заголовок
 echo '<h1 class="title">Категории</h1>';
-
 // Таблица с категориями
 echo '<table class="table">';
 // Заголовок таблицы
@@ -82,12 +83,10 @@ else{
 echo '</table>';
 
 //Добавить категорию
-echo '
-	<form class="add">
-		 <label for="add-cat"></label>
-		 <input type="text" name="add-cat" id="add-cat"></input>
-		 <a href="">Добавить категорию</a>
-	</form>
-	';
+echo '<form class="add">
+		 <label for="cat-name"></label>
+		 <input type="text" name="cat-name" id="cat-name">
+		 <input type="button" id="add-cat" value="Добавить категорию">
+	  </form>';
 echo '<div id="results"></div>';
 ?>

@@ -2,8 +2,6 @@
 require 'db.php';
 // Заголовок
 
-
-
 echo '<h1 class="title">Товары</h1>';
 // Текущая категория
 echo '<form>
