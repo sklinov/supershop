@@ -71,12 +71,12 @@ while($category = $categories->fetch_assoc()) {
 		<td class="table__cell">'.$category["quantity"].'</td>;';
 if($category["quantity"]==0)
 {	
-	echo '<td class="table__cell"><a href="">Удалить</a></td>';
+	echo '<td class="table__cell"><span id="del-cat" class="link" data-cat-id="'.$category["id"].'">Удалить</span></td>';
 }
 else{
 	echo '<td class="table__cell"></td>';
 }
-	echo '<td class="table__cell"><a href="">Просмотр</a></td>
+	echo '<td class="table__cell"><span id="edit-cat" class="link" data-cat-id="'.$category["id"].'">Просмотр</span></td>
  	  </tr>';
  }
 // Конец таблицы

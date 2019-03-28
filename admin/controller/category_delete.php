@@ -6,14 +6,14 @@ $product_table = "product";
 $category_table = "category";
 $product_category_table = "product_category";
 
-$newcat = isset($_POST['new-name']) ? $_POST['new-name'] : false;
+$catid = isset($_POST['cat-id']) ? $_POST['cat-id'] : false;
 //var_dump($newcat);
 
-if($newcat) {
-	$q = "INSERT INTO category VALUES (DEFAULT,\"".$newcat."\",DEFAULT,DEFAULT)";
+if($catid) {
+	$q = "DELETE FROM category WHERE id=".$catid;
     if($mysqli->query($q) === TRUE)
 	{
-		echo "Категория ".$newcat." добавлена";
+		echo "Категория ".$catid." удалена";
 	}
 	else
 	{
@@ -23,6 +23,5 @@ if($newcat) {
 else {
 	echo "Введите имя категории";
 }
-
 
 ?>

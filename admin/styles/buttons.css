@@ -1,0 +1,26 @@
+.button {
+    width: 200px;
+    height: 40px;
+    margin: 20px 20px 20px 0px;
+    text-align: center;
+    border: none;
+    font-family: Proxima Nova;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.button:hover {
+    filter: brightness(75%);
+}
+.button:active {
+    
+}
+
+.button-success {
+    background-color: var(--green);
+    color: white;
+}
+.button-secondary {
+    background-color: var(--dgrey);
+    color: white;
+}
