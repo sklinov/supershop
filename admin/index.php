@@ -27,6 +27,7 @@ require 'controller/db.php';
 		</div>
 	</div>
 <script src="scripts/index.js"></script>
+<script src="scripts/product.js"></script>
 <script src="scripts/category.js"></script>
 </body>
 </html>

@@ -22,23 +22,4 @@ $(function(){
 		console.log("Click category");
 		$('#content').load('controller/category.php');
 	});
-	
-	$('#content').on("click","#selectcat", function(){
-		   console.log("category chosen");
-		   var formData = $('#catdropdown').val(); 
-		   console.log(formData);
-			 $.ajax({
-		      type: 'post',
-		      url: 'controller/product_list.php',
-		      data: {'catdropdown':formData},
-		      success: function(results) {
-		        $('#results').html(results);
-		      },
-		      error: function() {
-		      	console.log('ajax error');
-		      }
-	    	});
-	});
-
-
 });

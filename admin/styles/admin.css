@@ -1,5 +1,6 @@
 @import url("fonts.css");
 @import url("buttons.css");
+@import url("cards.css");
 
 :root {
 	--blue: #2980b9;
@@ -7,9 +8,13 @@
 	--ddblue: #243342;
 	--grey: #ecf0f1;
 	--greytext: #95a5a6;
+	--dgrey: #757575;
+	--ltgrey: #999999;
+	--bordergrey :#dee1e2;
 	--green: #2ecc71;
 	--purple: #8e44ad;
-	--dgrey: #757575;
+	--red: #d32f2f;
+	
 }
 
 .page {

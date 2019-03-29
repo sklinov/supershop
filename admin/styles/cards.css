@@ -1,0 +1,26 @@
+.card {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid var(--bordergrey);
+    border-radius: 2px;
+}
+
+.card__title {
+    padding: 10px;
+    color: var(--greytext);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--bordergrey);
+    border-collapse: collapse; 
+}
+
+.card__cont {
+    padding: 10px;
+}
+
+.card__label {
+    font-size: 14px;
+    font-weight: 200;
+    color: var(--ltgrey);
+}

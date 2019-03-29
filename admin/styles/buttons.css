@@ -24,3 +24,7 @@
     background-color: var(--dgrey);
     color: white;
 }
+.button-danger {
+    background-color: var(--red);
+    color: white;
+}

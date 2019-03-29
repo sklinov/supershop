@@ -34,7 +34,7 @@ else {
 $products = all_from_category($mysqli, $product_table, $product_category_table, $cat_id);
 
 function all_from_category($mysqli, $pr_table, $pr_cat_table, $category) {
-	$res = $mysqli->query("SELECT ".$pr_table.".name, ".$pr_table.".price FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product WHERE ".$pr_cat_table.".id_category = ".(int)$category);
+	$res = $mysqli->query("SELECT ".$pr_table.".name, ".$pr_table.".price, ".$pr_table.".id FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product WHERE ".$pr_cat_table.".id_category = ".(int)$category);
 	return $res;
 }
 
@@ -52,7 +52,7 @@ while($product = $products->fetch_assoc()) {
 	echo '<tr class="table__row">
 		<td class="table__cell">'.$product["name"].'</td>
  		<td class="table__cell">'.$product["price"].'</td>
- 		<td class="table__cell"><a href="">Просмотр</a></td>
+ 		<td class="table__cell"><span class="link" id="edit-pr" data-id="'.$product["id"].'">Просмотр</span></td>
  	  </tr>';
  }
 // Конец таблицы
