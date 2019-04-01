@@ -147,6 +147,13 @@
 	text-decoration: underline;
 }
 
+.link-success {
+	color: var(--green);
+}
+.link-danger {
+	color: var(--red);
+}
+
 .form {
 	margin: 20px;
 }
@@ -157,4 +164,5 @@
 
 .form__input-field {
 	margin: 10px;
+	font-family: inherit;
 }

@@ -17,10 +17,32 @@
 
 .card__cont {
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.card__col {
+
 }
 
 .card__label {
     font-size: 14px;
     font-weight: 200;
     color: var(--ltgrey);
+}
+.card__imageblock {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin: 10px;
+}
+
+.card__image {
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid black;
 }

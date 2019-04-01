@@ -16,8 +16,6 @@ if ($mysqli->connect_errno) {
     echo "Не удалось подключиться к MySQL: " . $mysqli->connect_error;
 }
 
-//var_dump($_POST);
-
 $cat_chosen = isset($_POST['catdropdown']) ? $_POST['catdropdown'] : false;
 
 if($cat_chosen) {
@@ -27,14 +25,21 @@ if($cat_chosen) {
 	//var_dump((int)$cat_id);  
 }
 else {
-	//$i++;
 	$cat_id = "1";
-	//echo "Выберите категорию";
 }
+
+
 $products = all_from_category($mysqli, $product_table, $product_category_table, $cat_id);
 
 function all_from_category($mysqli, $pr_table, $pr_cat_table, $category) {
-	$res = $mysqli->query("SELECT ".$pr_table.".name, ".$pr_table.".price, ".$pr_table.".id FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product WHERE ".$pr_cat_table.".id_category = ".(int)$category);
+	if($category!="TRUE")	{
+		$q="SELECT ".$pr_table.".name, ".$pr_table.".price, ".$pr_table.".id FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product WHERE ".$pr_cat_table.".id_category = ".(int)$category;
+	}
+	else if ($category=="TRUE")
+	{
+	  $q="SELECT ".$pr_table.".name, ".$pr_table.".price, ".$pr_table.".id FROM ".$pr_cat_table." JOIN ".$pr_table." ON ".$pr_table.".id=".$pr_cat_table.".id_product";	
+	}
+	$res = $mysqli->query($q);
 	return $res;
 }
 
