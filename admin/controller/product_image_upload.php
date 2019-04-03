@@ -11,7 +11,7 @@ if($_FILES['file']['size']<=1048576) {
         if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
             echo "Файл корректен и был успешно загружен.\n";
         } else {
-            echo "Ошибка загрузки файла!\n";
+            echo move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
         }
     }
     else {
