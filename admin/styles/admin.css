@@ -1,6 +1,7 @@
 @import url("fonts.css");
 @import url("buttons.css");
 @import url("cards.css");
+@import url("material-icons.css");
 
 :root {
 	--blue: #2980b9;
@@ -165,4 +166,14 @@
 .form__input-field {
 	margin: 10px;
 	font-family: inherit;
+}
+
+.upload__label {
+	cursor: pointer;
+	max-width: 150px;
+}
+
+.upload__input {
+	display: none;
+
 }

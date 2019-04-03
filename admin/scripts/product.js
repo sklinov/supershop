@@ -19,23 +19,6 @@ $(function(){
     $('#content').on("change","#catdropdown", product_list);
     $('#content').on("load", product_list);
 
-    // $('#content').on("click","#selectcat", function(){
-    //     console.log("category chosen");
-    //     var formData = $('#catdropdown').val(); 
-    //     console.log(formData);
-    //     $.ajax({
-    //     type: 'post',
-    //     url: 'controller/product_list.php',
-    //     data: {'catdropdown':formData},
-    //     success: function(results) {
-    //         $('#results').html(results);
-    //     },
-    //     error: function() {
-    //         console.log('ajax error');
-    //     }
-    //     });
-    // });
-
     //Edit product
     $('#content').on("click","#edit-pr", function(){
         console.log("product edit");
@@ -58,9 +41,11 @@ $(function(){
     $('#content').on("click","#img-upload", function () {
         console.log("file upload");
         var file_data = $('#img-upload-file').prop('files')[0];
+        var id        = $("#pr-edit-id").val();
         var formData = new FormData("pr-edit");
         //formData.id = $("#pr-edit-id").val();
         formData.append('file', file_data);
+        formData.append('id', id);
         //console.log(formData.file);
         $.ajax({
             type:'post',
@@ -75,7 +60,13 @@ $(function(){
                 console.log('ajax error');
             }
             });
-    }); 
+    });
+    
+    $('#content').on("change",$("#img-upload-file"), function (){
+        var fileName = $("#img-upload-file").val().split('\\').pop();
+        $("#upload-label").html(fileName);
+      });
+    
     //Save button
     $('#content').on("click","#button-save-product", function(){
         var formData = {};

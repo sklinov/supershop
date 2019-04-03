@@ -102,7 +102,8 @@ function render_upload($product_id) {
         echo '
         <div class="card__imageblock">
             <div class="card__image" style="background-image:url('.$url.');"></div>
-            <input type="file" id="img-upload-file"></input>
+            <label class="upload__label" id="upload-label" for="img-upload-file"><i class="material-icons">folder</i></label>
+            <input class="upload__input" type="file" id="img-upload-file" accept=".jpg, .jpeg, .png, .gif, .svg"></input>
             <span class="link" id="img-upload">Загрузить</span>
         </div>
 ';
