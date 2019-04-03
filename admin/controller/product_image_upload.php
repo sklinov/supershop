@@ -1,6 +1,7 @@
 <?php
 
 $uploaddir = '/img/product/';
+
 if($_FILES['file']['size']<=1048576) {
     if($_FILES['file']['type']=='image/jpeg' || 
        $_FILES['file']['type']=='image/png'  || 
@@ -11,7 +12,7 @@ if($_FILES['file']['size']<=1048576) {
         if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
             echo "Файл корректен и был успешно загружен.\n";
         } else {
-            echo "Ошибка загрузки файла";
+            echo "Ошибка загрузки файла:".$_FILES["file"]["error"];
         }
     }
     else {
