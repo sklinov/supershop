@@ -34,6 +34,7 @@ $(function(){
         });
     });
     //Edit category
+    
     $('#content').on("click","#button-save", function(){
         var formData = [];
         console.log("category save");

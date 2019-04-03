@@ -20,7 +20,7 @@ function render_form($product,$images) {
     //Render main form
     echo '<h1 class="title">Просмотр товара</h1>';
     echo '
-        <form class="form">
+        <form class="form" name="pr-edit" enctype="multipart/form-data">
             <input type="hidden" id="pr-edit-id" value="'.$product["id"].'">
             <div class="card">
                 <div class="card__title">
@@ -102,6 +102,7 @@ function render_upload($product_id) {
         echo '
         <div class="card__imageblock">
             <div class="card__image" style="background-image:url('.$url.');"></div>
+            <input type="file" id="img-upload-file"></input>
             <span class="link" id="img-upload">Загрузить</span>
         </div>
 ';

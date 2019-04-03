@@ -53,7 +53,29 @@ $(function(){
         }
         });
     });
-    // ----EDIT PAG
+    // ----EDIT PAGE
+    //Upload image
+    $('#content').on("click","#img-upload", function () {
+        console.log("file upload");
+        var file_data = $('#img-upload-file').prop('files')[0];
+        var formData = new FormData("pr-edit");
+        //formData.id = $("#pr-edit-id").val();
+        formData.append('file', file_data);
+        //console.log(formData.file);
+        $.ajax({
+            type:'post',
+            url: 'controller/product_image_upload.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(results) {
+                $('#results').html(results);
+            },
+            error: function() {
+                console.log('ajax error');
+            }
+            });
+    }); 
     //Save button
     $('#content').on("click","#button-save-product", function(){
         var formData = {};
