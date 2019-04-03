@@ -1,5 +1,7 @@
 <?php
 
+echo $_SERVER['DOCUMENT_ROOT'];
+
 $uploaddir = '/img/product/';
 
 if($_FILES['file']['size']<=1048576) {
