@@ -15,6 +15,7 @@
 	--green: #2ecc71;
 	--purple: #8e44ad;
 	--red: #d32f2f;
+	--orange: #f57c00;
 	
 }
 
@@ -109,6 +110,11 @@
  border-collapse: collapse;
 }
 
+.table-fixed {
+	table-layout: fixed;
+	border: none;
+}
+
 
 .table__head {
 	text-transform: uppercase;
@@ -154,6 +160,16 @@
 .link-danger {
 	color: var(--red);
 }
+.success {
+	color: var(--green);
+}
+.danger {
+	color: var(--red);
+}
+.attention {
+	color: var(--orange);
+}
+
 
 .form {
 	margin: 20px;

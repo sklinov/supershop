@@ -29,5 +29,6 @@ require 'controller/db.php';
 <script src="scripts/index.js"></script>
 <script src="scripts/product.js"></script>
 <script src="scripts/category.js"></script>
+<script src="scripts/user.js"></script>
 </body>
 </html>

@@ -37,22 +37,17 @@ $(function(){
         });
     });
     // ----EDIT PAGE
-    //Upload image
-    $('#content').on("click","#img-upload", function () {
-        console.log("file upload");
-        var file_data = $('#img-upload-file').prop('files')[0];
-        var id        = $("#pr-edit-id").val();
-        var formData = new FormData("pr-edit");
-        //formData.id = $("#pr-edit-id").val();
-        formData.append('file', file_data);
-        formData.append('id', id);
-        //console.log(formData.file);
+    //Delete image
+    $('#content').on("click",".img-delete", function () {
+        formData = {};
+        console.log("image delete");
+        formData.img_id=$(this).data('img-id');
+        formData.id = $("#pr-edit-id").val();
+        console.log("image id:",formData.img_id,"  product id:",formData.id);
         $.ajax({
             type:'post',
-            url: 'controller/product_image_upload.php',
+            url: 'controller/product_image_delete.php',
             data: formData,
-            contentType: false,
-            processData: false,
             success: function(results) {
                 $('#results').html(results);
             },
@@ -60,6 +55,36 @@ $(function(){
                 console.log('ajax error');
             }
             });
+    });
+
+    //Upload image
+    $('#content').on("click","#img-upload", function () {
+        console.log("file upload");
+        var file_data = $('#img-upload-file').prop('files')[0];
+        if (file_data) {
+            var id        = $("#pr-edit-id").val();
+            var formData = new FormData("pr-edit");
+            //formData.id = $("#pr-edit-id").val();
+            formData.append('file', file_data);
+            formData.append('id', id);
+            //console.log(formData.file);
+            $.ajax({
+                type:'post',
+                url: 'controller/product_image_upload.php',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(results) {
+                    $('#results').html(results);
+                },
+                error: function() {
+                    console.log('ajax error');
+                }
+                });
+        }
+        else {
+            $('#results').html('<span class="attention">Выберите файл</span>');
+        }
     });
     
     $('#content').on("change",$("#img-upload-file"), function (){

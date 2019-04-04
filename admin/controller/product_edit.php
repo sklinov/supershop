@@ -86,7 +86,7 @@ function render_images($product_id, $images) {
             <div class="card__imageblock">
                 <div class="card__image" style="background-image:url('.$url.');"></div>
                 <span class="link link-success" id="img-change">Изменить</span>
-                <span class="link link-danger" id="img-delete">Удалить</span>
+                <span class="img-delete link link-danger" data-img-id="'.$img["id"].'" id="img-delete">Удалить</span>
             </div>
         '; 
         // echo $img["product_id"]."\n";
