@@ -30,5 +30,6 @@ require 'controller/db.php';
 <script src="scripts/product.js"></script>
 <script src="scripts/category.js"></script>
 <script src="scripts/user.js"></script>
+<script src="scripts/orders.js"></script>
 </body>
 </html>

@@ -120,6 +120,7 @@
 	text-transform: uppercase;
 	text-align: left;
 	padding: 3px;
+	color: var(--greytext);
 }
 
 .table__row {
@@ -130,8 +131,16 @@
 	border-left-left: 4px solid var(--purple);
 }
 .table__cell {
-	padding: 3px;
+	padding: 10px;
 }
+.table__cell-bold {
+	font-weight: 600;
+}
+.table__cell-blue {
+	font-weight: 600;
+	color: var(--blue);
+}
+
 
 .menu__item-mainpage {
 	padding: 30px;
@@ -182,6 +191,11 @@
 .form__input-field {
 	margin: 10px;
 	font-family: inherit;
+	max-width: 85%;
+}
+
+.form__input-select {
+	max-width: 85%;
 }
 
 .upload__label {

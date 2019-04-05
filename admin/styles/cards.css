@@ -26,6 +26,10 @@
 
 }
 
+.card__col-three {
+    max-width: 32%;
+}
+
 .card__label {
     font-size: 14px;
     font-weight: 200;
