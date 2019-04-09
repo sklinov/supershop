@@ -87,7 +87,12 @@ $(function(){
         }
     });
     
-    $('#content').on("change",$("#img-upload-file"), function (){
+    // $('#content').on("change", $("#img-upload-file"), function (){
+    //     var fileName = $("#img-upload-file").val().split('\\').pop();
+    //     $("#upload-label").html(fileName);
+    //   });
+    
+    $("#img-upload-file").on("change", function (){
         var fileName = $("#img-upload-file").val().split('\\').pop();
         $("#upload-label").html(fileName);
       });

@@ -196,6 +196,14 @@
 
 .form__input-select {
 	max-width: 85%;
+	border: none;
+	background: transparent;
+    text-decoration: underline;
+    padding: 5px;
+}
+
+.font-medium {
+	font-size: 20px;
 }
 
 .upload__label {

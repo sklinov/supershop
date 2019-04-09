@@ -19,7 +19,7 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .card__col {
