@@ -2,9 +2,15 @@
 require "db_connect.php";
 
 $categories = get_all_categories($mysqli);
+
+$data = [];
 while($category = $categories->fetch_assoc()) {
-    echo json_encode($category);
+    $data["categories"][] = $category;
 }
+header('Content-type: application/json');
+header('Access-Control-Allow-Origin: *');
+echo json_encode($data,true);
+
 
 function get_all_categories($mysqli) {
     $q = "SELECT * from category";
@@ -14,7 +20,7 @@ function get_all_categories($mysqli) {
     }
     else
     {
-        echo "Ошибка: ".$mysqli->error;  
+        echo "SQL Error: ".$mysqli->error;  
     }
 }
 

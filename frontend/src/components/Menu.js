@@ -10,16 +10,16 @@ export default class Menu extends Component {
           categories: []
         };
       }
-    
-               
+      
     componentDidMount() {
-    fetch("../api/categories.php")
-        .then(res => res.json())
+    const url = adjustURL("/src/api/categories.php");
+    fetch(url)
+        .then(response => response.json())
         .then(
         (result) => {
             this.setState({
             isLoaded: true,
-            categories: result
+            categories: result.categories
             });
         },
         (error) => {
@@ -30,7 +30,7 @@ export default class Menu extends Component {
         }
         )
     }
-    
+        
     render() {
    
     const { error, isLoaded, categories } = this.state;
@@ -42,8 +42,8 @@ export default class Menu extends Component {
       return (
         <div className="menu">
         { 
-            this.state.categories.map((category) => (
-            <span className="menu__item">{category.name}</span>
+            categories.map((category) => (
+            <span key={category.id} className="menu__item">{category.name}</span>
             ))
         }
         </div>
@@ -53,3 +53,12 @@ export default class Menu extends Component {
  
 }
 
+function adjustURL(oldurl) {
+  const localpath = "http://localhost:80/supershop/frontend";
+  var location = window.location.href;
+  if(location.includes("localhost"))
+  {
+    oldurl=localpath+oldurl;
+  }
+  return oldurl;
+}

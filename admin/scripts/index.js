@@ -1,9 +1,9 @@
 $(function(){
 	var stateObject = {};
-	window.onpopstate = function(event) {
-		History.back();	
-	}
-	History.back();
+	// window.onpopstate = function(event) {
+	// 	History.back();	
+	// }
+	// History.back();
 	
 	$('#menu__logo').click(function(){
 	 	console.log("Click menu logo");
