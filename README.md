@@ -1,5 +1,6 @@
-# supershop
-(SuperShop)[01_home.png]
+# SuperShop
+[SuperShop](01_home.png)
+
 A fully-functional mock of a e-commerce.
 Main stack backend:
 - MariaDB as a database
