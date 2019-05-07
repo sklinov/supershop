@@ -40,7 +40,7 @@ export default class Menu extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="menu">
+        <div className="category__item">
         { 
             categories.map((category) => (
             <span key={category.id} className="menu__item">{category.name}</span>
