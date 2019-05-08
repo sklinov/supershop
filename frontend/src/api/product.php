@@ -2,53 +2,50 @@
 require "db_connect.php";
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-$default = "TRUE";
+$default = 8;
 $id = isset($_POST['id']) ? $_POST['id'] : $default;
 $id = json_decode($id,true);
 
-$products = get_all_products_by_category_id($mysqli, $id);
-$category = get_category_info_by_id($mysqli, $id);
-
+$products = get_product_by_id($mysqli, $id);
+$images   = get_images_by_product_id($mysqli,$id);
 
 $data = [];
+
 while($product = $products->fetch_assoc()) {
-    $data["products"][] = $product;
+    $data["product"] = $product;
 }
-
-while($cat = $category->fetch_assoc()) {
-    $data["category"] = $cat;
+while($image = $images->fetch_assoc()) {
+    $data["images"] = $image;
 }
-
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin: *');
 echo json_encode($data,true);
 
 
-function get_all_products_by_category_id($mysqli, $id) {
-    $q = "SELECT
-                product_category.id_category AS id_category,
+function get_product_by_id($mysqli, $id) {
+    $q =   "SELECT
                 product.id AS id,
                 product.name AS name,
+                product.description AS description,
+                product.sku AS sku,
                 product.price AS price,
-                product_image.image_url AS image_url,
+                product.old_price AS old_price,
+                product.quantity AS quantity,
+                product_image.id AS image_id,
                 badge.name AS badge_name,
                 badge.color AS badge_color
-            FROM 
-                product_category
-            JOIN
+            FROM
                 product
-            ON
-                product.id = product_category.id_product
             JOIN
                 product_image
             ON
-                product_image.product_id = product.id AND product_image.image_main = 1
+                product_image.product_id = product.id
             JOIN
                 badge
             ON
-                badge.id = product.badge_id
+                badge.id = product.badge_id    
             WHERE
-                product_category.id_category = ".$id."
+                product.id = ".$id."
             GROUP BY
                 product.id";
     $result = $mysqli->query($q);
@@ -61,11 +58,13 @@ function get_all_products_by_category_id($mysqli, $id) {
     }
 }
 
-function get_category_info_by_id($mysqli, $id) {
-    $q = "SELECT 
-            *
-            FROM category
-            WHERE id=".$id;
+function get_images_by_product_id($mysqli,$id) {
+    $q =   "SELECT
+                *
+            FROM
+                product_image 
+            WHERE
+                product_id = ".$id;
     $result = $mysqli->query($q);
     if(isset($result)) {
         return $result;  

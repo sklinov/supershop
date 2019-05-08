@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import '../styles/menu.css';
 
 export default class Menu extends Component {
@@ -40,10 +41,10 @@ export default class Menu extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="category__item">
+        <div className="menu">
         { 
             categories.map((category) => (
-            <span key={category.id} className="menu__item">{category.name}</span>
+            <Link to={"/category/"+category.id} key={category.id} className="menu__item">{category.name}</Link>
             ))
         }
         </div>
