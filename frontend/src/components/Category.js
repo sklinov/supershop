@@ -16,7 +16,7 @@ export default class Category extends Component {
     componentWillMount() {
         this.setState({categoryId : this.props.match.params.id}); 
     }
-
+    
     componentDidMount() {
     const url = adjustURL("/src/api/products.php");
     fetch(url,{

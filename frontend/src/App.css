@@ -24,3 +24,7 @@ a:hover {
   color: inherit;
   text-decoration: underline;
 }
+
+.link-nondecorated:hover {
+  text-decoration: none;
+}

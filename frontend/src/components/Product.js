@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Images from '../components/Images'
 import '../styles/product.css'
+import {ProductConsumer} from '../Context'
 
 
 export default class Product extends Component {
